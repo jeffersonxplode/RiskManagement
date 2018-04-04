@@ -1,0 +1,119 @@
+<h1> Novo Risco </h1>
+
+
+<div>
+
+  <form #riskForm = "ngForm">
+
+    <div class="form-group">
+      <label for="name"> Risco </label>
+      <input type="text"
+             id="name"
+             required
+             name="name"
+             #name='ngModel'
+             [(ngModel)]="risk.name"
+      >
+    </div>
+
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Nome do Risco é necessario
+    </div>
+
+    <div class="form-group">
+      <label for="description"> Descrição do Risco</label>
+      <input type="text"
+             id="description"
+             required
+             name="description"
+             #description='ngModel'
+             [(ngModel)]="risk.description"
+      >
+    </div>
+
+    <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+      A descrição do risco é necessario
+    </div>
+
+
+    <div class="form-group">
+      <label for="probability_of_happen"> Probabilidade de acontecer </label>
+      <select
+             id="probability_of_happen"
+             required
+             name="probability_of_happen"
+             #probability_of_happen='ngModel'
+             [(ngModel)]="risk.probability_of_happen"
+      >
+
+        <option value=0.01> Raro </option>
+        <option value=0.05> Incomum </option>
+        <option value=0.10> Comum </option>
+        <option value=0.20> Quase certo </option>
+
+      </select>
+
+    </div>
+
+    <div [hidden]="probability_of_happen.valid || probability_of_happen.pristine" class="alert alert-danger">
+      A probabilidade de acontecer é necessaria
+    </div>
+
+    <div class="form-group">
+      <label for="impact"> Impacto </label>
+      <select
+        id="impact"
+        required
+        name="impact"
+        #impact='ngModel'
+        [(ngModel)]="risk.impact"
+      >
+
+        <option value=1> Pequeno </option>
+        <option value=5> Razoável </option>
+        <option value=9> Grande </option>
+        <option value=20> Extremo </option>
+
+      </select>
+
+    </div>
+
+    <div [hidden]="impact.valid || impact.pristine" class="alert alert-danger">
+      O impacto que causa é necessario
+    </div>
+
+    <div class="form-group">
+      <label for="treatment"> Tratamento do risco</label>
+      <input type="text"
+             id="treatment"
+             required
+             name="treatment"
+             #treatment='ngModel'
+             [(ngModel)]="risk.treatment"
+      >
+    </div>
+
+    <div [hidden]="treatment.valid || treatment.pristine" class="alert alert-danger">
+      O tratamento do risco é necessario
+    </div>
+
+
+  </form>
+
+</div>
+
+
+<div>
+
+
+  <p> {{ risk.name }}  </p>
+
+  <p> {{ risk.description }} </p>
+
+  <p> {{ risk.probability_of_happen }} </p>
+
+  <p> {{ risk.impact }} </p>
+
+  <p> {{ risk.probability_of_happen * risk.impact }} </p>
+
+</div>

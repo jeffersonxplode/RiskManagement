@@ -1,0 +1,9 @@
+<h1> Lista de riscos</h1>
+
+<div *ngFor=" let risk of risks">
+
+  <a routerLink="/risk/{{ risk.id }}">
+  {{ risk.name }},  {{ risk.description }},  {{ risk.probability_of_happen }}, {{ risk.impact }}, {{ risk.severity}}
+  </a>
+
+</div>
